@@ -1,5 +1,5 @@
 #!/bin/bash
-#./InstallNET_cn.sh  -d 11 -v 64 -a  -p Ly123456
+#./InstallNET_cn.sh  -d 11 -v 64 -a  -p Ly123456 --ip-addr 192.168.30.69 --ip-gate 192.168.30.254 --ip-mask 255.255.255.0 -i ens192
 ## License: GPL
 ## It can reinstall Debian, Ubuntu, CentOS system with network.
 ## Default root password: MoeClub.org
@@ -201,7 +201,7 @@ function selectMirror(){
   [ -n "$TEMP" ] || exit 1
   mirrorStatus=0
   declare -A MirrorBackup
-#   MirrorBackup=(["debian0"]="" ["debian1"]="https://mirrors.ustc.edu.cn/debian" ["debian2"]="http://archive.debian.org/debian" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="http://mirror.centos.org/centos" ["centos2"]="http://vault.centos.org")
+#   MirrorBackup=(["debian0"]="" ["debian1"]="http://mirrors.ustc.edu.cn/debian" ["debian2"]="http://archive.debian.org/debian" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="http://mirror.centos.org/centos" ["centos2"]="http://vault.centos.org")
 #   MirrorBackup=(["debian0"]="" ["debian1"]="http://deb.debian.org/debian" ["debian2"]="http://archive.debian.org/debian" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="http://mirror.centos.org/centos" ["centos2"]="http://vault.centos.org")
   MirrorBackup=(["debian0"]="" ["debian1"]="http://mirrors.ustc.edu.cn/debian/" ["ubuntu0"]="" ["ubuntu1"]="http://archive.ubuntu.com/ubuntu" ["ubuntu2"]="http://ports.ubuntu.com" ["centos0"]="" ["centos1"]="http://mirror.centos.org/centos" ["centos2"]="http://vault.centos.org")
   echo "$New" |grep -q '^http://\|^https://\|^ftp://' && MirrorBackup[${Relese}0]="$New"
